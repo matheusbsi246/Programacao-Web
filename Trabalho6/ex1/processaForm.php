@@ -1,3 +1,9 @@
+<?php
+$nome = $_POST["nome"];
+$email = $_POST["email"];
+echo "Sr. $nome, seu e-mail é $email";
+
+$str = <<<BLOCO_HTML
 <!doctype html>
 <html lang="pt-br">
 
@@ -50,3 +56,6 @@
 </body>
 
 </html>
+BLOCO_HTML;
+
+?>
