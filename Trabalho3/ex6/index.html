@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Formulário de Cadastro de Cliente</title>
+
+</head>
+
+<body>
+    <main>
+        <form action="cadastraCliente.php" method="post">
+            <fieldset>
+                <legend>Dados pessoais:
+                </legend>
+                <div>
+                    <label for="nome">Nome: </label>
+                    <input autofocus type="text" id="nome" name="nome" placeholder="Digite o seu nome" minlength="2"
+                        maxlength="50" required>
+                    <span></span>
+                </div>
+                <div>
+                    <label for="email">E-mail: </label>
+                    <input type="email" id="email" name="email" placeholder="Digite o seu E-mail" required>
+                    <span></span>
+                </div>
+                <div>
+                    <label for="cpf">CPF: </label>
+                    <input type="text" id="cpf" name="cpf" placeholder="Digite o seu CPF" pattern="xxx.xxx.xxx-xx"
+                        minlength="14" maxlength="14" required>
+                </div>
+                <div>
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade" placeholder="digite sua Idade" required>
+                </div>
+                <div>
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(Só numeros)" pattern="[0-9]{12}"
+                        required>
+                    <span></span>
+                </div>
+
+                <div>
+                    <label for="data">Data de nascimento:</label>
+                    <input type="date" id="data" name="data">
+                </div>
+
+                <fieldset>
+                    <legend>Escolha o Sexo</legend>
+                    <div class="radio">
+                        <input type="radio" id="Masculino" name="sexo" value="Masculino">
+                        <label for="Masculino">Masculino</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" id="feminino" name="sexo" value="feminino">
+                        <label for="feminino"> Feminino </label>
+                    </div>
+                </fieldset>
+                <div>
+                    <input type="hidden" id="invisible" name="invisible">
+                </div>
+                <fieldset>
+                    <legend>Escolha o Estado Civil</legend>
+                    <div class="radio">
+                        <input type="radio" id="solteiro" name="estadocivil" value="solteiro">
+                        <label for="solteiro">Solteiro</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" id="casado" name="estadocivil" value="casado">
+                        <label for="casado"> Casado </label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" id="divorciado" name="estadocivil" value="divorciado">
+                        <label for="divorciado">Divorciado</label>
+                    </div>
+                </fieldset>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    Endereço de Entrega
+                </legend>
+                <div>
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep" placeholder="(Só numeros)" pattern="[0-9]{8}" required>
+                    <span></span>
+                </div>
+                <div>
+                    <span>logradouro: </span>
+                    <select name="logradouro">
+                        <option value="rua">Rua</option>
+                        <option value="avenida">Avenida</option>
+                        <option value="praca">praça</option>
+                        <option value="outro">Outro</option>
+                    </select>
+
+                </div>
+                <div>
+                    <label for="bairro">Bairro: </label>
+                    <input type="text" id="bairro" name="bairro" placeholder="Digite o noem do seu bairro" required>
+                </div>
+                <div>
+                    <label for="cidade">Cidade: </label>
+                    <input type="text" id="cidade" name="cidade" placeholder="Digite o nome da sua Cidade" required>
+                </div>
+                <div>
+                    <label for="estado">Estado: </label>
+                    <input type="text" id="estado" name="estado" placeholder="Digite o nome da sua Cidade" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Informações Adicionais</legend>
+
+                <fieldset>
+                    Interesses pessoais
+                    <div class="radio">
+                        <input type="checkbox" id="filmes" name="Interesses[]" value="filmes">
+                        <label for="filmes"> Filmes</label>
+                    </div>
+                    <div class="radio">
+                        <input type="checkbox" id="informatica" name="Interesses[]" value="informatica">
+                        <label for="informatica"> Informática</label>
+                    </div>
+                    <div class="radio">
+                        <input type="checkbox" id="games" name="Interesses[]" value="games">
+                        <label for="games"> Games</label>
+                    </div>
+                    <div class="radio">
+                        <input type="checkbox" id="livros" name="Interesses[]" value="livros">
+                        <label for="livros">Livros</label>
+                    </div>
+                    <div class="radio">
+                        <input type="checkbox" id="roupas" name="Interesses[]" value="roupas">
+                        <label for="roupas">Roupas</label>
+                    </div>
+                </fieldset>
+                <div>
+                    <textarea name="informacoesComplementares" rows="10" cols="30"> Descreve mais informações
+                  
+                    </textarea>
+                </div>
+                <div>
+                    <label for="file">Upload de arquivo</label>
+                    <input type="file" name="file" id="file">
+                </div>
+                <div>
+                    <label for="recebimento">Recebimento</label>
+                    <input type="text" name="recebimento" id="recebimento" value="O titular receberá o produto"
+                        readonly>
+
+                </div>
+
+            </fieldset>
+
+            <button>Enviar</button>
+            <input type="reset" value="Limpar">
+
+        </form>
+    </main>
+
+
+</body>
+
+</html>

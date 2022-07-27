@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulários em html</title>
+</head>
+
+<body>
+    <main>
+        <form action="login.php" method="POST" enctype="application/x-www-form-urlencoded">
+            <div>
+                <label for="suario"> Usuário: </label>
+                <input type="text" id="usuario" name="usuario" placeholder="Informe o Usuário" autocomplete = "off" required >
+            </div>
+
+            <div>
+                <label for="senha"> Senha </label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+
+            <button>Enviar</button>
+            <input type="reset" value="Limpar">
+        </form>
+    </main>
+
+</body>
+
+</html>

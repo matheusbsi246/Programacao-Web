@@ -1,0 +1,90 @@
+nav button {
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    background-color: inherit;
+    height: 30px;
+    margin: 0;
+}
+
+nav button:hover {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+button.buttonActive {
+    font-weight: bold;
+    color: blue;
+}
+
+.tabs section {
+    display: none;
+}
+
+section.tabActive {
+    display: block;
+}
+
+header {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 5px;
+    background-size: cover;
+    background-color: rgb(34, 34, 34);
+    color: white;
+
+}
+
+header  div {
+    width: 60%;
+    margin: auto;
+
+
+}
+
+
+body {
+    margin: 0%;
+    background-color: lightgray;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+main {
+    background-color: white;
+    padding: 10px;
+    line-height: 1.5rem;
+    width: 60%;
+    margin: 10px auto;
+    border-radius: 7px;
+    box-shadow: 3px 3px 5px gray;
+
+}
+
+img {
+
+    border-radius: 5px;
+}
+
+nav {
+    background-color: white;
+    padding: 1px;
+    background-size: cover;
+    box-shadow: 3px 3px 5px gray;
+}
+
+ul {
+    text-align: center;
+}
+
+nav > ul li {
+    display: inline;
+    margin: 0px 20px 0px 0px;
+}
+
+ul li {
+    text-align:left;
+}
+
+button {
+    font-size: 1rem;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Janela Modal</title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <label for="interesse">Interesse</label>
+            <input type="text" name="interesse" id="interesse">
+
+        </div>
+
+        <ol>
+
+        </ol>
+
+        <script>
+
+            window.onload = function () {
+                const campoInteresse = document.querySelector("#interesse");
+                campoInteresse.addEventListener("keyup", e => {
+                    if (e.key == "Enter")
+                        adicionaInteresse();
+                });
+            }
+            function adicionaInteresse() {
+
+                const campoInteresse = document.querySelector("#interesse"); // a variavel "campoInteresse" recebe o elemento, pelo id, do documento 
+                const listaInteresse = document.querySelector("ol");//a variavel listaInteresse recebe o valor do primeiro elemento ol
+
+                const novoLi = document.createElement("li"); //a constante novoLi recebe um novo elemento li 
+                const novoSpan = document.createElement("span"); // a constante recebe um novo elemento span 
+                const novoBotao = document.createElement("button");// a constante novoBotao recebe um novo elemento button
+
+                novoSpan.textContent = campoInteresse.value; // o novoSpan recebe o valor da variavel campoInteresse 
+                novoBotao.textContent = '✖'; // o novoBotao recebe o valor "✖"
+
+                novoLi.appendChild(novoSpan);//acrescenta o novoSpan como filho do li
+                novoLi.appendChild(novoBotao);//acrescenta o novoBotao como filho do li  
+                listaInteresse.appendChild(novoLi);//após tudo isso, o li é finalmente adcionado a lista
+
+                novoBotao.onclick = function () { //adiona uma função ao evento "click" do botão 
+                    listaInteresse.removeChild(novoLi); // a função remove o li cirado pelo usuario da lista 
+                }
+                campoInteresse.value = '';
+            }
+
+        </script>
+    </main>
+
+</body>
+
+</html>

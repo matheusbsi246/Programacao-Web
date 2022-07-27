@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Curriculo de Fulano de Tal</title>
+</head>
+
+<body>
+    <nav>
+        <header>
+            <div>
+                <img src="images/Icon.png" alt="Avatar Fulado de Tal" width="120" height="120">
+                <h1>Fulado de Tal</h1>
+            </div>
+           
+        </header>
+        <ul>
+
+            <li> <button> Formação acadêmica </button> | </li>
+            <li> <button> Experiência profissional </button> | </li>
+            <li> <button> Informações pra contato </button> | </li>
+            <li> <button> Graymatters </button> </li>
+
+        </ul>
+    </nav>
+    <main>
+        <div class="tabs">
+
+            <section>
+                <h2>Perfil</h2>
+                <p>
+                    Um dos fundadores da empresa <i>Gray Matter Technologies</i>
+                    Possuo grande visão de negócio, experiência em manuseio de compostos químicos com segurança e
+                    competência pra extrair da melhor forma e obter um produto com uma pureza ideal.</p>
+                <p>Tenho
+                    grande experiência na área de educação, lecionando química de uma maneira simples e objetiva. Pra
+                    mim,
+                    quimíca se trata de uma arte e o medo é o nosso pior inimigo. </p>
+
+            </section>
+            <section>
+                <h2>Principais Competências</h2>
+                <ul>
+                    <li>Químico por formação</li>
+                    <li>Pesquisador</li>
+                    <li>Líder</li>
+                    <li>Revolucionário</li>
+                    <li>Adaptável</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Formação Acadêmica</h2>
+                <p>Graduação em licenciatura em Química pela <a href="https://www.caltech.edu/">California Institute of
+                        Technologies </a>(1980) e pós Graduação em Química pela <a href="https://www.ucla.edu/">
+                        Universidade da
+                        Califórnia em Los Angeles</a> (1982).</p>
+            </section>
+            <section>
+                <h2>Experiência profissional</h2>
+                <ol>
+                    <li>Gray Matter Tecnologies(1980 - 1985)
+                        <ul>
+                            <li>Cofundador</li>
+                            <li>Pesquisas</li>
+                        </ul>
+                    </li>
+                    <li>Sadia Laboratories
+                        <ul>
+                            <li>Quimico</li>
+                        </ul>
+                    </li>
+                    <li>J. P. Wynne High School
+                        <ul>
+                            <li>Professor</li>
+                        </ul>
+                    </li>
+                </ol>
+                <a href="Experiência.html">Veja as experiências profissionais em detalhes</a>
+            </section>
+            <section>
+                <h2>Contato</h2>
+                <address>
+                    <p> <img src="images/EndIcon.png" alt="Icone do Endereço" width="30" height="30">
+                        308 Negra Arroyo Lane, Albuquerque, New Mexico, 87104
+                    </p>
+                    <p> <img src="images/telIcon.png" alt="Icone do Telefone" width="30" height="30"><a
+                            href="tel:034-99999-9999">
+                            Tel: 034 99999-9999
+                        </a></p>
+                    <p> <img src="images/IconMail.png" alt="Icone do Email" width="30" height="30"> <a
+                            href="mailto:WhalterWhite@jorgmail.com">
+                            Email: WhalterWhite@jorgmail.com
+                        </a></p>
+                </address>
+            </section>
+        </div>
+
+    </main>
+    <script>
+
+        window.onload = function () {/* onload é uma propriedade de tratamento de evento do objeto window, a função que vem em seguida 
+        se iniciará automaticamente quando houver o evento load, ou seja, quando a página estiver com todos os recursos carregados. */
+            buttons = document.querySelectorAll("nav button"); //seleciona todos os botões da barra de navegação
+            for (let button of buttons) { // aciona um evento pra variavel button 
+                button.addEventListener("click", changeTab); // após clicar em um button do painel de navegação ocorre a função changeTab
+            }
+            openTab(0);//encontra a posição do li que está dentro da lista
+        }
+        function changeTab(e) {// essa função será chamada quando o usuário clicar em algum botão da tabela de navegação. 
+            const botaoAcionado = e.target; //O Paramentro 'e' vai ter as informações sobre o evento e do objeto que acionou o botão do evento. 
+            const liDoBotao = botaoAcionado.parentNode; //a variavel liDoBotão vai receber o nó "pai" da lista 
+            const nodes = Array.from(liDoBotao.parentNode.children);//a variavel nodes vai receber todos os nós filhos do nó pai do liDoBotao
+            //o Array.from é pra transferir esse lista em um vetor.
+            const index = nodes.indexOf(liDoBotao);// a variavel index irá receber o valor da posição de um li especifico 
+            //fornecido pela função infexof 
+            openTab(index);//a função open tab vai tornar visivel o section do botão especifico. 
+        }
+
+        function openTab(i) {
+            const tabActive = document.querySelector(".tabActive"); // a section que está visivel vai ficar invisivel 
+            if (tabActive !== null)
+                tabActive.className = "";
+
+            const buttonActive = document.querySelector(".buttonActive");// o botão que está ativo vai ficar inativo
+            if (buttonActive !== null)
+                buttonActive.className = "";
+
+            document.querySelectorAll(".tabs section")[i].className = "tabActive";//volta a visibilidade da section
+            document.querySelectorAll("nav button")[i].className = "buttonActive";// o botão volta a estar ativo
+        }
+    </script>
+</body>
+
+</html>

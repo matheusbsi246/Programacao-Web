@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <title>Formularios Flutuantes Bootstrap</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <form class="row p-3 g-3">
+        <div class="col-md-9  form-floating">
+            <input type="text" class="form-control" id="nomeCompleto" placeholder=" ">
+            <label for="nomeCompleto">Nome Completo</label>
+        </div>
+        <div class="col-md-3  form-floating">
+            <input type="text" class="form-control" id="CPF" placeholder=" ">
+            <label for="CPF">CPF</label>
+        </div>
+        <div class="col-md-9  form-floating">
+            <input type="email" class="form-control" id="email" placeholder=" ">
+            <label for="email">Email</label>
+        </div>
+        <div class="col-md-3  form-floating">
+            <input type="password" class="form-control" id="senha" placeholder=" ">
+            <label for="senha">Senha</label>
+        </div>
+        <div class="col-md-2  form-floating">
+            <input type="text" class="form-control" id="CEP" placeholder=" ">
+            <label for="CEP">CEP</label>
+        </div>
+        <div class="col-md-10  form-floating">
+            <input type="text" class="form-control" id="endereco" placeholder=" ">
+            <label for="endereco">Endereço</label>
+        </div>
+        <div class="col-md-12  form-floating">
+            <input type="text" class="form-control" id="bairro" placeholder=" ">
+            <label for="bairro">Bairro</label>
+        </div>
+        <div class="col-md-12  form-floating">
+            <input type="text" class="form-control" id="cidade" placeholder=" ">
+            <label for="cidade">Cidade</label>
+        </div>
+        <div class="col-md-12  form-floating">
+            <select id="estado" class="form-select">
+                <option selected>Selecione o Estado</option>
+                <option value="MG">MG</option>
+            </select>
+        </div>
+        <div class="col-md-12 ">
+            <input type="checkbox" class="form-check-input" id="termos">
+            <label for="termos" class="form-check-label">Concordo com os termos</label>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-forward" fill="currentcol-mdor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M9.502 5.513a.144.144 0 0 0-.202.134V6.65a.5.5 0 0 1-.5.5H2.5v2.9h6.3a.5.5 0 0 1 .5.5v1.003c0 .108.11.176.202.134l3.984-2.933a.51.51 0 0 1 .042-.028.147.147 0 0 0 0-.252.51.51 0 0 1-.042-.028L9.502 5.513zM8.3 5.647a1.144 1.144 0 0 1 1.767-.96l3.994 2.94a1.147 1.147 0 0 1 0 1.946l-3.994 2.94a1.144 1.144 0 0 1-1.767-.96v-.503H2a.5.5 0 0 1-.5-.5v-3.9a.5.5 0 0 1 .5-.5h6.3v-.503z" />
+                </svg>
+                Cadastrar
+            </button>
+        </div>
+    </form>
+</body>
+
+</html>
