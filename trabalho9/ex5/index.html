@@ -1,75 +1,90 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+    <title>Artes</title>
+    <style></style>
+  </head>
 
-<head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
-  <meta charset="UTF-8" />
-  <title>Artes </title>
-  <style></style>
-</head>
-
-<body>
-  <div class="p-3">
-    <form>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Digite um tema legal">
-        <small id="emailHelp" class="form-text text-muted">Todas as imagens são do museu metropolitado de New York </small>
-      </div>
-      <button type="submit" class="btn btn-primary">Pesquisar</button>
-    </form>
-  </div>
-
-
-  <main class="p-5">
-
-    <span id="Nome"></span>
-    <span id="Origem"></span>
-    <span id="Data"></span>
-    <div class="p-5">
-      <img id="obraDeArte" src="" alt="">
+  <body>
+    <div class="p-3">
+      <form>
+        <div class="form-group">
+          <input
+            for="temaPesquisa"
+            type="text"
+            class="form-control"
+            placeholder="Digite um tema legal"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >Todas as imagens são do museu metropolitado de New York
+          </small>
+        </div>
+        <button type="submit" id="botaoPesquisar" class="btn btn-primary">
+          Pesquisar
+        </button>
+      </form>
     </div>
 
-  </main>
+    <main class="p-2">
+      <div class="p-5">
+        <img id="obraDeArte" src="" alt="" />
+      </div>
+      <span id="Nome">Artista:</span>
+      <span id="Origem"></span>
+      <span id="Data"></span>
+    </main>
 
-  <script>
-    async function buscaObraDeArte() {
-      try {
-        const response1 = await fetch(
-          "https://collectionapi.metmuseum.org/public/collection/v1/search?q=tiger"
-        );
-        if (!response1.ok) throw new Error(response1.statusText);
-        artIdArray = await response1.json();
+    <script>
+      async function buscaObraDeArte(str) {
+        try {
+          const response1 = await fetch(
+            `https://collectionapi.metmuseum.org/public/collection/v1/search?q=${str}`
+          );
+          if (!response1.ok) throw new Error(response1.statusText);
+          artIdArray = await response1.json();
 
-        const quantidadeArtes = artIdArray.total;
+          const quantidadeArtes = artIdArray.total;
 
-        const var1 =
-          artIdArray.objectIDs[Math.floor(Math.random() * quantidadeArtes)];
+          const var1 =
+            artIdArray.objectIDs[Math.floor(Math.random() * quantidadeArtes)];
 
-        const response2 = await fetch(
-          `https://collectionapi.metmuseum.org/public/collection/v1/objects/${var1}`
-        );
-        if (!response2.ok) throw new Error(response2.statusText);
+          const response2 = await fetch(
+            `https://collectionapi.metmuseum.org/public/collection/v1/objects/${var1}`
+          );
+          if (!response2.ok) throw new Error(response2.statusText);
 
-        artImage = await response2.json();
+          artImage = await response2.json();
 
-        document.getElementById("obraDeArte").src = artImage.primaryImageSmall;
-        document.getElementById("Nome").innerText =
-          artImage.artistDisplayName;
-      } catch (error) {
-        console.log(error);
-        alert("Não foi possível obter a imagem");
+          document.getElementById("obraDeArte").src =
+            artImage.primaryImageSmall;
+          document.getElementById("Nome").innerText =
+            "artista" + artImage.artistDisplayName;
+        } catch (error) {
+          console.log(error);
+          alert("Não foi possível obter a imagem");
+        }
       }
-    }
 
-    window.onload = function () {
-      buscaObraDeArte();
-      const photo = document.getElementById("obraDeArte");
-      photo.onclick = function () {
+      window.onload = function () {
+        const bot = document.getElementById("botaoPesquisar");
+        campoInteresse.addEventListener("keyup", (e) => {
+          if (e.key == "Enter")
+            buscaObraDeArte(document.getElement("#temaPesquisa"));
+        });
+
         buscaObraDeArte();
-      }
-    };
-  </script>
-</body>
-
+        const photo = document.getElementById("obraDeArte");
+        photo.onclick = function () {
+          buscaObraDeArte();
+        };
+      };
+    </script>
+  </body>
 </html>
